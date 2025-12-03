@@ -55,19 +55,19 @@ public class InventorySystem : MonoBehaviour
                 isVisible = false;
                 DisplayUI(false);
             }
-            //if (Input.GetKeyDown(KeyCode.U))
-            // {
+            if (Input.GetKeyDown(KeyCode.U))
+            {
 
-            // if (playerInventory[currentInventoryIndex].familyType == Item.ItemFamilyType.FOOD)
-            //  {
-            //    GetComponent<ControlPlayer>().IncreaseHealth(playerInventory[currentInventoryIndex].healthBenefits);
-            //    playerInventory.RemoveAt(currentInventoryIndex);
-            //    currentInventoryIndex = 0; isVisible = false; DisplayUI(false);
+            if (playerInventory[currentInventoryIndex].familyType == Item.ItemFamilyType.FOOD)
+            {
+                GetComponent<ControlPlayer>().IncreaseHealth(playerInventory[currentInventoryIndex].healthBenefits);
+                playerInventory.RemoveAt(currentInventoryIndex);
+                currentInventoryIndex = 0; isVisible = false; DisplayUI(false);
 
 
-            //  }
+            }
 
-            //  }
+            }
 
 
 

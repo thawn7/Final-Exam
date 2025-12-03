@@ -26,15 +26,15 @@ public class ControlPlayer : MonoBehaviour
     bool weaponIsActive = false;
 
     // Start is called before the first frame update
-    //public void IncreaseHealth (int amount)
-    //{
+    public void IncreaseHealth (int amount)
+    {
 
-    // health += amount;
-    //if (health > 100) health = 100;
-    //print("Health: " + health);
-    //GameObject.Find("healthBar").GetComponent<ManageBar>().SetValue(health);
+    health += amount;
+    if (health > 100) health = 100;
+    print("Health: " + health);
+    GameObject.Find("healthBar").GetComponent<ManageBar>().SetValue(health);
 
-    //}
+    }
 
     void Start()
     {
@@ -44,7 +44,7 @@ public class ControlPlayer : MonoBehaviour
         userMessage = GameObject.Find("userMessage");
         userMessage.SetActive(false);
 
-        // GameObject.Find("healthBar").GetComponent<ManageBar>().SetValue(health);
+        GameObject.Find("healthBar").GetComponent<ManageBar>().SetValue(health);
         //  shopUI = GameObject.Find("shopUI");
         //  shopUI.SetActive(false);
         // weapon = GameObject.Find("playerWeapon").gameObject; weapon.SetActive(false);
