@@ -47,7 +47,7 @@ public class ControlPlayer : MonoBehaviour
         GameObject.Find("healthBar").GetComponent<ManageBar>().SetValue(health);
         shopUI = GameObject.Find("shopUI");
         shopUI.SetActive(false);
-        // weapon = GameObject.Find("playerWeapon").gameObject; weapon.SetActive(false);
+        weapon = GameObject.Find("playerWeapon").gameObject; weapon.SetActive(false);
         // }
 
         // Update is called once per frame

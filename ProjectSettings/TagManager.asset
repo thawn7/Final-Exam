@@ -6,6 +6,7 @@ TagManager:
   tags:
   - itemToBeCollected
   - Shop
+  - target
   layers:
   - Default
   - TransparentFX
