@@ -59,7 +59,7 @@ public class ManageTargetHealth : MonoBehaviour
     void DestroyTarget()
     {
 
-        //GetComponent<ControlNPCGuard>().Dies();
+        GetComponent<ControlNPCGuard>().Dies();
         Destroy(gameObject, 5);
         //GameObject.Find("GameManager").GetComponent<QuestSystem>().Notify(QuestSystem.possibleActions.destroy_one, gameObject.name);
 

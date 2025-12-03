@@ -42,11 +42,11 @@ public class ControlNPCGuard : MonoBehaviour
 
         info = anim.GetCurrentAnimatorStateInfo(0);
         //if (info.IsName("Idle") || info.IsName("Patrol"))
-        {
+        //{
             //if (isNearPlayer() && canHearPlayer) SetGuardType(GUARD_TYPE.CHASER);
 
-        }
-        //if (isNearPlayer()) anim.SetBool("isWithinAttackingRange", true); else anim.SetBool("isWithinAttackingRange", false);
+        //}
+        if (isNearPlayer()) anim.SetBool("isWithinAttackingRange", true); else anim.SetBool("isWithinAttackingRange", false);
         //if (info.IsName("Idle"))
         //{
         //    if (isNearPlayer()) SetGuardType(GUARD_TYPE.CHASER);
@@ -76,12 +76,12 @@ public class ControlNPCGuard : MonoBehaviour
             transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
             GetComponent<NavMeshAgent>().isStopped = true;
 
-            //if (info.normalizedTime % 1.0f >=.98 && isVeryNearPlayer())
-            //{
+            if (info.normalizedTime % 1.0f >=.98 && isVeryNearPlayer())
+            {
 
-               // player.GetComponent<ControlPlayer>().DecreaseHealth(10);
+               player.GetComponent<ControlPlayer>().DecreaseHealth(10);
 
-           // }
+            }
 
         }
         

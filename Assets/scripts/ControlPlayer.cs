@@ -235,5 +235,20 @@ public class ControlPlayer : MonoBehaviour
        shopUI.SetActive(true);
 
     }
+    public void DecreaseHealth(int amount)
+    {
 
+        health -= amount;
+        if (health <= 0) health = 0;
+        GameObject.Find("healthBar").GetComponent<ManageBar>().SetValue(health);
+        if (health <= 0)
+        {
+
+            health = 50;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        }
+
+    }
 }
+
