@@ -41,8 +41,8 @@ public class ControlPlayer : MonoBehaviour
         anim = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
 
-        // userMessage = GameObject.Find("userMessage");
-        //userMessage.SetActive(false);
+        userMessage = GameObject.Find("userMessage");
+        userMessage.SetActive(false);
 
         // GameObject.Find("healthBar").GetComponent<ManageBar>().SetValue(health);
         //  shopUI = GameObject.Find("shopUI");
@@ -61,7 +61,17 @@ public class ControlPlayer : MonoBehaviour
         anim.SetFloat("speed", speed);
         gameObject.transform.Rotate(0, rotatioAroundY, 0);
         if (speed > 0) controller.Move(transform.forward * speed * 2.0f * Time.deltaTime);
+        if (itemToPickUpNearBy)
+        {
 
+            if (Input.GetKeyDown(KeyCode.Y)) PickUpObject1();
+            if (Input.GetKeyDown(KeyCode.N))
+            {
+                GameObject.Find("userMessageText").GetComponent<Text>().text = "";
+                userMessage.SetActive(false);
+            }
+
+        }
 
     }
     private void OnControllerColliderHit(ControllerColliderHit hit)
@@ -82,4 +92,57 @@ public class ControlPlayer : MonoBehaviour
 
         isTalking = false;
     }
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "itemToBeCollected")
+        {
+
+
+            objectToPickUp = other.gameObject;
+            itemToPickUpNearBy = true;
+            //PickUpObject1();
+            PickUpObject2();
+
+        }
+        //if (other.gameObject.name == "shop")
+        //{
+
+        // shopIsDisplayed = true;
+        // anim.SetFloat("speed", 0);
+        //  displayShopUI();
+        //  GameObject.Find("shopSystem").GetComponent<ShopSystem>().Init(); ;
+
+        //   }
+
+    }
+    void PickUpObject1()
+    {
+        if (
+            GetComponent<InventorySystem>().UpdateItem(objectToPickUp.GetComponent<ObjectToBeCollected>().type, 1)
+            )
+        {
+            Destroy(objectToPickUp);
+            itemToPickUpNearBy = false;
+
+        }
+
+    }
+    void PickUpObject2()
+    {
+        //print("Collected");
+
+        //userMessage.SetActive(true);
+        string article = objectToPickUp.GetComponent<ObjectToBeCollected>().item.article;
+        string message = "You just found " + article + " " + objectToPickUp.GetComponent<ObjectToBeCollected>().item.name + "\n Collect? (y/n)";
+        userMessage.SetActive(true);
+        GameObject.Find("userMessageText").GetComponent<Text>().text = message;
+
+
+
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        itemToPickUpNearBy = false;
+    }
+
 }
