@@ -947,7 +947,7 @@ MonoBehaviour:
   - {fileID: 877954194}
   - {fileID: 1417144705}
   anim: {fileID: 0}
-  guardType: 1
+  guardType: 0
   player: {fileID: 1023322701}
   canHearPlayer: 0
 --- !u!195 &295931584
@@ -6117,10 +6117,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ff748d529af40648acedfc71f4dfd2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestSystem
-  stagePanel: {fileID: 12222893}
-  stageTitleText: {fileID: 1556429256}
-  stageDescriptionText: {fileID: 565699041}
-  stageObjectivesText: {fileID: 304574052}
+  stagePanel: {fileID: 0}
+  stageTitleText: {fileID: 0}
+  stageDescriptionText: {fileID: 0}
+  stageObjectivesText: {fileID: 0}
   player: {fileID: 6323316439609695108, guid: 180dc374c94bc1844a3c28f8f0656222, type: 3}
 --- !u!4 &1865196186 stripped
 Transform:

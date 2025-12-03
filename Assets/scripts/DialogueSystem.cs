@@ -134,7 +134,7 @@ public class DialogueSystem : MonoBehaviour
 
                     currentDialogueIndex = 0;
 
-                    //GameObject.Find("GameManager").GetComponent<QuestSystem>().Notify(QuestSystem.possibleActions.talk_to, nameOfCharacter);
+                    GameObject.Find("GameManager").GetComponent<QuestSystem>().Notify(QuestSystem.possibleActions.talk_to, nameOfCharacter);
 
 
                 }

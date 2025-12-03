@@ -61,13 +61,13 @@ public class ManageTargetHealth : MonoBehaviour
 
         GetComponent<ControlNPCGuard>().Dies();
         Destroy(gameObject, 5);
-        //GameObject.Find("GameManager").GetComponent<QuestSystem>().Notify(QuestSystem.possibleActions.destroy_one, gameObject.name);
+        GameObject.Find("GameManager").GetComponent<QuestSystem>().Notify(QuestSystem.possibleActions.destroy_one, gameObject.name);
 
-    }
+    }   
 
     public void DecreaseHealth(int increment)
     {
-        print("I am hit");
+        //print("I am hit");
         SetHealth(this.health - increment);
         hitFlash = true;
         alpha = .5f;

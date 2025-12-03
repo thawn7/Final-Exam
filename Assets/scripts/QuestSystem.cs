@@ -246,7 +246,7 @@ public class QuestSystem : MonoBehaviour
         {
             if (actions == actionsForQuest[i] && target == targets[i] && !objectiveAchieved[i])
             {
-                //print("+" + xps[i] + "XP");
+                print("+" + xps[i] + "XP");
                 Display("+" + xps[i] + "XP");
                 nbObjectivesAchieved++; XPAchieved += Int32.Parse(xps[i]);
                 objectiveAchieved[i] = true;
