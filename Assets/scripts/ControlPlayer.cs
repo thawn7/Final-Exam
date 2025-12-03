@@ -123,8 +123,20 @@ public class ControlPlayer : MonoBehaviour
         {
             Destroy(objectToPickUp);
             itemToPickUpNearBy = false;
+            GameObject.Find("userMessageText").GetComponent<Text>().text = "";
+            //GameObject.Find("GameManager").GetComponent<QuestSystem>().Notify(QuestSystem.possibleActions.acquire_a, objectToPickUp.GetComponent<ObjectToBeCollected>().item.name);
+            userMessage.SetActive(false);
+        }
+        else
+        {
+
+            string message = "You cant pickup this item as you have reached thelimit";
+            GameObject.Find("userMessageText").GetComponent<Text>().text = message;
 
         }
+
+
+
 
     }
     void PickUpObject2()
@@ -143,6 +155,18 @@ public class ControlPlayer : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         itemToPickUpNearBy = false;
+        if (userMessage.activeSelf)
+        {
+
+            GameObject.Find("userMessageText").GetComponent<Text>().text = "";
+            userMessage.SetActive(false);
+        }
     }
+    //public void displayShopUI()
+    //{
+
+       // shopUI.SetActive(true);
+
+   // }
 
 }
