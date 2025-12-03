@@ -201,33 +201,31 @@ public class QuestSystem : MonoBehaviour
     }
     void MovePlayerToStartingPoint()
     {
-        //print(">>> Moving Player to start");
-        GameObject p = Instantiate(player);
-        p.name = "Player";
-        p.transform.position = GameObject.Find("startingPoint").transform.position;
-        //if (SceneManager.GetActiveScene().name == "level1")
+        print(">>> Moving Player to start");
+        GameObject p;// = Instantiate(player);
+        if (SceneManager.GetActiveScene().name == "level1")
         {
-            // p = Instantiate(player);
-            //  p.name = "Player";
+            p = Instantiate(player);
+            p.name = "Player";
 
 
-            //    p.transform.position = GameObject.Find("startingPoint").transform.position;
-            //     p.transform.rotation = new Quaternion(0, 0, 0, 0);
-            //     p.transform.parent = gameObject.transform;
+            p.transform.position = GameObject.Find("startingPoint").transform.position;
+            p.transform.rotation = new Quaternion(0, 0, 0, 0);
+            p.transform.parent = gameObject.transform;
 
 
-
-            //    }
-            // else{
-
-            //      p = GameObject.Find("Player");
-            //      p.transform.position = GameObject.Find("startingPoint").transform.position;
-
-            //    }
 
         }
+        else
+        {
+
+            p = GameObject.Find("Player");
+            p.transform.position = GameObject.Find("startingPoint").transform.position;
+
+        }
+
+
     }
-        // }
 
     void DisplayQuestInfo()
        {
@@ -260,7 +258,7 @@ public class QuestSystem : MonoBehaviour
         {
 
             Display("Stage Complete");
-            //GetComponent<GameManager>().player.XP = CalculateTotalXPForLevel();
+            GetComponent<GameManager>().player.XP = CalculateTotalXPForLevel();
             Invoke("StageComplete", 2);
 
         }
