@@ -65,13 +65,13 @@ public class GameManager : MonoBehaviour
         return (currentStage);
     }
 
-    public void LoadNewScene()
-    {
+    //public void LoadNewScene()
+    //{
 
         //string nextScene = "level" + (GetStage() + 1);
         //GetComponent<QuestSystem>().stagePanel.SetActive(true);
         //if (GetStage() > 0) GetComponent<QuestSystem>().Init();
        // SceneManager.LoadScene(nextScene);
 
-    }
+    //}
 }

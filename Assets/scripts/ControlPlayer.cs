@@ -191,7 +191,7 @@ public class ControlPlayer : MonoBehaviour
             Destroy(objectToPickUp);
             itemToPickUpNearBy = false;
             GameObject.Find("userMessageText").GetComponent<Text>().text = "";
-            //GameObject.Find("GameManager").GetComponent<QuestSystem>().Notify(QuestSystem.possibleActions.acquire_a, objectToPickUp.GetComponent<ObjectToBeCollected>().item.name);
+            GameObject.Find("GameManager").GetComponent<QuestSystem>().Notify(QuestSystem.possibleActions.acquire_a, objectToPickUp.GetComponent<ObjectToBeCollected>().item.name);
             userMessage.SetActive(false);
         }
         else

@@ -71,10 +71,10 @@ public class QuestSystem : MonoBehaviour
     public void Init()
     {
 
-        //stageTitleText = GameObject.Find("stageTitle");
-        //stageObjectivesText = GameObject.Find("stageObjectives");
-        //stageDescriptionText = GameObject.Find("stageDescription");
-        //stagePanel = GameObject.Find("stagePanel");
+        stageTitleText = GameObject.Find("stageTitle");
+        stageObjectivesText = GameObject.Find("stageObjectives");
+        stageDescriptionText = GameObject.Find("stageDescription");
+        stagePanel = GameObject.Find("stagePanel");
 
 
 
@@ -86,9 +86,10 @@ public class QuestSystem : MonoBehaviour
         xps = new List<string>();
         objectiveAchieved = new List<bool>();
         actionsForQuest = new List<possibleActions>();
-        LoadQuest();
-        //LoadQuest2();
-        //DisplayQuestInfo();
+        //LoadQuest();
+        LoadQuest2();
+        DisplayQuestInfo();
+
 
 
 
@@ -200,39 +201,43 @@ public class QuestSystem : MonoBehaviour
     }
     void MovePlayerToStartingPoint()
     {
-        print(">>> Moving Player to start");
-        GameObject p;// = Instantiate(player);
-        if (SceneManager.GetActiveScene().name == "level1")
+        //print(">>> Moving Player to start");
+        GameObject p = Instantiate(player);
+        p.name = "Player";
+        p.transform.position = GameObject.Find("startingPoint").transform.position;
+        //if (SceneManager.GetActiveScene().name == "level1")
         {
-            p = Instantiate(player);
-            p.name = "Player";
+            // p = Instantiate(player);
+            //  p.name = "Player";
 
 
-            p.transform.position = GameObject.Find("startingPoint").transform.position;
-            p.transform.rotation = new Quaternion(0, 0, 0, 0);
-            p.transform.parent = gameObject.transform;
+            //    p.transform.position = GameObject.Find("startingPoint").transform.position;
+            //     p.transform.rotation = new Quaternion(0, 0, 0, 0);
+            //     p.transform.parent = gameObject.transform;
 
 
+
+            //    }
+            // else{
+
+            //      p = GameObject.Find("Player");
+            //      p.transform.position = GameObject.Find("startingPoint").transform.position;
+
+            //    }
 
         }
-        else{
-
-            p = GameObject.Find("Player");
-            p.transform.position = GameObject.Find("startingPoint").transform.position;
-
-        }
-
-
     }
+        // }
 
     void DisplayQuestInfo()
-    {
-        stageTitleText.GetComponent<Text>().text = stageTitle;
-        stageDescriptionText.GetComponent<Text>().text = stageDescription;
-        stageObjectivesText.GetComponent<Text>().text = stageObjectives + "\n Press H to Hide/Display this information";
+       {
+            stageTitleText.GetComponent<Text>().text = stageTitle;
+            stageDescriptionText.GetComponent<Text>().text = stageDescription;
+            stageObjectivesText.GetComponent<Text>().text = stageObjectives + "\n Press H to Hide/Display this information";
 
 
-    }
+        }
+    
 
     public void Notify (possibleActions actions, string target)
     {
