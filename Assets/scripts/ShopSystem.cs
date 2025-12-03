@@ -14,7 +14,7 @@ public class ShopSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Init();   
+        //Init();   
     }
 
     // Update is called once per frame
@@ -26,8 +26,8 @@ public class ShopSystem : MonoBehaviour
     public void Init()
     {
 
-        initialMoney = 1000;
-        //initialMoney = GameObject.Find("Player").GetComponent<InventorySystem>().GetMoney();
+        //initialMoney = 1000;
+        initialMoney = GameObject.Find("Player").GetComponent<InventorySystem>().GetMoney();
         moneyLeft = initialMoney;
         topLeftX = 320; topLeftY = 440;
         shopItems = new List<Item>();
@@ -67,9 +67,9 @@ public class ShopSystem : MonoBehaviour
 
 
     }
-}
 
-    /*public void UpdateTotal(int itemIndex, int itemAmount)
+
+    public void UpdateTotal(int itemIndex, int itemAmount)
     {
 
         shopItems[itemIndex].nb = itemAmount;
@@ -107,4 +107,4 @@ public class ShopSystem : MonoBehaviour
 
     }
 }
-    */
+    

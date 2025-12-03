@@ -58,14 +58,14 @@ public class InventorySystem : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.U))
             {
 
-            if (playerInventory[currentInventoryIndex].familyType == Item.ItemFamilyType.FOOD)
-            {
-                GetComponent<ControlPlayer>().IncreaseHealth(playerInventory[currentInventoryIndex].healthBenefits);
-                playerInventory.RemoveAt(currentInventoryIndex);
-                currentInventoryIndex = 0; isVisible = false; DisplayUI(false);
+                if (playerInventory[currentInventoryIndex].familyType == Item.ItemFamilyType.FOOD)
+                {
+                    GetComponent<ControlPlayer>().IncreaseHealth(playerInventory[currentInventoryIndex].healthBenefits);
+                    playerInventory.RemoveAt(currentInventoryIndex);
+                    currentInventoryIndex = 0; isVisible = false; DisplayUI(false);
 
 
-            }
+                }
 
             }
 
@@ -130,7 +130,7 @@ public class InventorySystem : MonoBehaviour
     }
 
 
-    /*public int GetMoney()
+    public int GetMoney()
     {
 
         for (int i = 0; i < playerInventory.Count; i++)
@@ -146,8 +146,8 @@ public class InventorySystem : MonoBehaviour
         return 0;
 
     }
-
-    public void AddPurchasedItems(List<Item> purchasedItems)
+}
+    /*public void AddPurchasedItems(List<Item> purchasedItems)
     {
         bool t;
         for (int i = 0; i < purchasedItems.Count; i++)
@@ -176,6 +176,6 @@ public class InventorySystem : MonoBehaviour
 
 
 }
-    */
-}
-   
+    
+
+   */

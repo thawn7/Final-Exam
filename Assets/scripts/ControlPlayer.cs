@@ -45,14 +45,14 @@ public class ControlPlayer : MonoBehaviour
         userMessage.SetActive(false);
 
         GameObject.Find("healthBar").GetComponent<ManageBar>().SetValue(health);
-        //  shopUI = GameObject.Find("shopUI");
-        //  shopUI.SetActive(false);
+        shopUI = GameObject.Find("shopUI");
+        shopUI.SetActive(false);
         // weapon = GameObject.Find("playerWeapon").gameObject; weapon.SetActive(false);
         // }
 
         // Update is called once per frame
     }
-    void Update()
+    /*void Update()
     {
         if (isTalking) return;
         info = anim.GetCurrentAnimatorStateInfo(0);
@@ -71,7 +71,74 @@ public class ControlPlayer : MonoBehaviour
                 userMessage.SetActive(false);
             }
 
+            if (Input.GetKeyDown(KeyCode.B)) GameObject.Find("shopSystem").GetComponent<ShopSystem>().Init();
         }
+    }*/
+
+    void Update()
+    {
+        if (!shopIsDisplayed)
+        {
+
+            if (isTalking) return;
+            info = anim.GetCurrentAnimatorStateInfo(0);
+            speed = Input.GetAxis("Vertical");
+            rotatioAroundY = Input.GetAxis("Horizontal");
+            anim.SetFloat("speed", speed);
+            gameObject.transform.Rotate(0, rotatioAroundY, 0);
+            if (speed > 0) controller.Move(transform.forward * speed * 2.0f * Time.deltaTime);
+
+            if (itemToPickUpNearBy)
+            {
+
+                if (Input.GetKeyDown(KeyCode.Y)) PickUpObject1();
+                if (Input.GetKeyDown(KeyCode.N))
+                {
+                    GameObject.Find("userMessageText").GetComponent<Text>().text = "";
+                    userMessage.SetActive(false);
+                }
+
+            }
+
+
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+
+                weaponIsActive = !weaponIsActive;
+                if (weaponIsActive) anim.SetTrigger("useWeapon");
+                else anim.SetTrigger("putWeaponBack");
+
+            }
+            if (info.IsName("UseWeapon"))
+            {
+                if (info.normalizedTime % 1.0 >= .50)
+                {
+                    weapon.SetActive(true);
+
+                }
+
+            }
+            if (info.IsName("PutWeaponBack"))
+            {
+                if (info.normalizedTime % 1.0 >= .50)
+                {
+                    weapon.SetActive(false);
+
+                }
+                else weapon.SetActive(true);
+
+            }
+
+
+            if (Input.GetButtonDown("Fire1"))
+            {
+
+                if (weaponIsActive) anim.SetTrigger("attackWithWeapon");
+
+            }
+
+        }
+        //if (Input.GetKeyDown(KeyCode.X)) GameObject.Find("shopSystem").GetComponent<ShopSystem>().Init();
 
     }
     private void OnControllerColliderHit(ControllerColliderHit hit)
@@ -104,15 +171,15 @@ public class ControlPlayer : MonoBehaviour
             PickUpObject2();
 
         }
-        //if (other.gameObject.name == "shop")
-        //{
+        if (other.gameObject.name == "shop")
+        {
 
-        // shopIsDisplayed = true;
-        // anim.SetFloat("speed", 0);
-        //  displayShopUI();
-        //  GameObject.Find("shopSystem").GetComponent<ShopSystem>().Init(); ;
+            shopIsDisplayed = true;
+            anim.SetFloat("speed", 0);
+            displayShopUI();
+            GameObject.Find("shopSystem").GetComponent<ShopSystem>().Init(); ;
 
-        //   }
+           }
 
     }
     void PickUpObject1()
@@ -162,11 +229,11 @@ public class ControlPlayer : MonoBehaviour
             userMessage.SetActive(false);
         }
     }
-    //public void displayShopUI()
-    //{
+    public void displayShopUI()
+    {
 
-       // shopUI.SetActive(true);
+       shopUI.SetActive(true);
 
-   // }
+    }
 
 }
