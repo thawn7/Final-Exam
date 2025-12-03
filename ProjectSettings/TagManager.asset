@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - itemToBeCollected
+  - Shop
   layers:
   - Default
   - TransparentFX

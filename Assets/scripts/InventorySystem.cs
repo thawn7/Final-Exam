@@ -146,36 +146,32 @@ public class InventorySystem : MonoBehaviour
         return 0;
 
     }
-}
-    /*public void AddPurchasedItems(List<Item> purchasedItems)
+
+public void AddPurchasedItems(List<Item> purchasedItems)
+{
+    bool t;
+    for (int i = 0; i < purchasedItems.Count; i++)
     {
-        bool t;
-        for (int i = 0; i < purchasedItems.Count; i++)
+        if (purchasedItems[i].nb > 0) t = UpdateItem(purchasedItems[i].type, purchasedItems[i].nb);
+
+    }
+
+}
+
+public void SetMoney(int newAmount)
+{
+
+    for (int i = 0; i < playerInventory.Count; i++)
+    {
+
+        if (playerInventory[i].type == Item.ItemType.GOLD)
         {
-            if (purchasedItems[i].nb > 0) t = UpdateItem(purchasedItems[i].type, purchasedItems[i].nb);
+            playerInventory[i].nb = newAmount;
 
         }
 
     }
 
-    public void SetMoney(int newAmount)
-    {
-
-        for (int i = 0; i < playerInventory.Count;i++)
-        {
-
-            if (playerInventory[i].type == Item.ItemType.GOLD)
-            {
-                playerInventory[i].nb = newAmount;
-
-            }
-
-        }
-
-    }
-
+}
 
 }
-    
-
-   */
