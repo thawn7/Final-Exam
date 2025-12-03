@@ -55,7 +55,7 @@ public class QuestSystem : MonoBehaviour
 
                 displayTimer = 0;
                 startDisplayTimer = false;
-                GameObject.Find("userMessage").GetComponent<Text>().text = "";
+                GameObject.Find("userMessages").GetComponent<Text>().text = "";
 
             }
 
@@ -255,7 +255,7 @@ public class QuestSystem : MonoBehaviour
 
         }
 
-        //if (nbObjectivesAchieved == nbObjectivesToAchieve)
+        if (nbObjectivesAchieved == nbObjectivesToAchieve)
         if (nbObjectivesAchieved >= 1)
         {
 
@@ -292,7 +292,7 @@ public class QuestSystem : MonoBehaviour
     void Display(string message)
     {
 
-        GameObject.Find("userMessage").GetComponent<Text>().text = message; startDisplayTimer = true;
+        GameObject.Find("userMessages").GetComponent<Text>().text = message; startDisplayTimer = true;
 
     }
 }
