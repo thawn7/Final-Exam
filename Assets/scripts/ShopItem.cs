@@ -43,7 +43,7 @@ public class ShopItem : MonoBehaviour
     {
         transform.Find("itemQty").GetComponent<Text>().text = "" + quantity;
 
-        GameObject.Find("shopSystem").GetComponent<ShopSystem>().UpdateTotal(index, quantity);
+       //GameObject.Find("shopSystem").GetComponent<ShopSystem>().UpdateTotal(index, quantity);
 
 
     }
@@ -51,10 +51,10 @@ public class ShopItem : MonoBehaviour
     bool canClick()
     {
 
-        ///return true;
+        return true;
         /// 
-        GameObject shopSystem = GameObject.Find("shopSystem");
-        return shopSystem.GetComponent<ShopSystem>().canAddItemsTocart(this.index);
+        //GameObject shopSystem = GameObject.Find("shopSystem");
+        //return shopSystem.GetComponent<ShopSystem>().canAddItemsTocart(this.index);
 
     }
 
