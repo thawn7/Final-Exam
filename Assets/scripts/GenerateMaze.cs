@@ -210,9 +210,9 @@ public class GenerateMaze : MonoBehaviour
         float zOffset = -(height * wallSize) / 2;
 
         GameObject npc1 = (GameObject)(Instantiate(npc, new Vector3(xOffset + wallSize, 0.52f, zOffset + wallSize * 2), Quaternion.identity));
-        npc1.GetComponent<ControlNPCGuard>().guardType = ControlNPCGuard.GUARD_TYPE.IDLE;
+        //npc1.GetComponent<ControlNPCGuard>().guardType = ControlNPCGuard.GUARD_TYPE.IDLE;
 
-        //npc1.GetComponent<ControlNPCGuard>().guardType = ControlNPCGuard.GUARD_TYPE.CHASER;
+        npc1.GetComponent<ControlNPCGuard>().guardType = ControlNPCGuard.GUARD_TYPE.CHASER;
         //npc1.GetComponent<ControlNPCGuard>().player = GameObject.Find("player");
         npc1.GetComponent<ControlNPCGuard>().player = GameObject.Find("Player");
 

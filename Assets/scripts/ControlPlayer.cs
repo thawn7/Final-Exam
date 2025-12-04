@@ -11,8 +11,6 @@ public class ControlPlayer : MonoBehaviour
     CharacterController controller;
     AnimatorStateInfo info;
     bool isTalking = false;
-    float talkCooldown = 8f;     // seconds between conversations
-    float nextTalkTime = 0f;     // when we are allowed to talk again
 
     GameObject objectToPickUp;
     bool itemToPickUpNearBy = false;
@@ -151,8 +149,7 @@ public class ControlPlayer : MonoBehaviour
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if (hit.collider.gameObject.name == "Diana"
-            && !isTalking
-            && Time.time >= nextTalkTime)
+            && !isTalking)
         {
 
                 hit.collider.gameObject.GetComponent<DialogueSystem>().startDialogue();
@@ -167,7 +164,6 @@ public class ControlPlayer : MonoBehaviour
     {
 
         isTalking = false;
-        nextTalkTime = Time.time + talkCooldown;
     }
     public void OnTriggerEnter(Collider other)
     {
