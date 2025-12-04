@@ -19,7 +19,7 @@ public class CheckCollision : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-        //damage = GameObject.Find("GameManager").GetComponent<GameManager>().player.power / 2;
+        damage = GameObject.Find("GameManager").GetComponent<GameManager>().player.power / 2;
         
         if (other.GetComponent<Collider>().gameObject.tag == "target")
         {
