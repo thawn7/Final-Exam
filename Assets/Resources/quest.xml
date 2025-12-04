@@ -27,7 +27,7 @@
 		</requirements>
 
 		<results>
-			<result action = "Acquire a" target ="Gold" xp = "10"/>
+			<result action = "Acquire a" target ="Gold1" xp = "10"/>
 			<result action = "Acquire a" target ="Gold" xp = "10"/>
 			<result action = "Acquire a" target ="Gold" xp = "10"/>
 			<result action = "Acquire a" target ="Gold" xp = "10"/>

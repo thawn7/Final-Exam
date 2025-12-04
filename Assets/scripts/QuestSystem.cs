@@ -91,7 +91,7 @@ public class QuestSystem : MonoBehaviour
         //LoadQuest();
         LoadQuest2();
         DisplayQuestInfo();
-        Debug.Log("Loaded Stage ID: " + currentStage);
+        //Debug.Log("Loaded Stage ID: " + currentStage);
 
 
 
@@ -167,7 +167,7 @@ public class QuestSystem : MonoBehaviour
                 foreach (XmlNode results in stage)
 
                 {
-                    print("For this stage you need to:\n");
+                    //print("For this stage you need to:\n");
                     foreach (XmlNode result in results)
                     {
                         string action = result.Attributes.GetNamedItem("action").Value;
@@ -209,7 +209,7 @@ public class QuestSystem : MonoBehaviour
     }
     void MovePlayerToStartingPoint()
     {
-        print(">>> Moving Player to start");
+        //print(">>> Moving Player to start");
         GameObject p;// = Instantiate(player);
         if (SceneManager.GetActiveScene().name == "level1")
         {
@@ -250,7 +250,6 @@ public class QuestSystem : MonoBehaviour
         print("Notified: Action=" + actions + " Target=" + target);
         for (int i = 0; i < actionsForQuest.Count; i++)
         {
-            print($"Check {i}: expectedAction={actionsForQuest[i]}, expectedTarget={targets[i]}, achieved={objectiveAchieved[i]}");
 
             if (actions == actionsForQuest[i] &&
                 string.Equals(targets[i], target, StringComparison.OrdinalIgnoreCase) &&
@@ -289,13 +288,30 @@ public class QuestSystem : MonoBehaviour
     }
 
 
-    void StageComplete()
+    void StageCompletex()
     {
 
         if (SceneManager.GetActiveScene().name != "level3") SceneManager.LoadScene("levelComplete");
         else SceneManager.LoadScene("endScene");
 
     }
+
+    void StageComplete()
+    {
+        string current = SceneManager.GetActiveScene().name;
+
+        // ✅ Prevent duplicate calls after the scene has changed
+        if (current == "levelComplete" || current == "endScene")
+            return;
+
+        Debug.Log("StageComplete() called from scene: " + current);
+
+        if (current == "level3")
+            SceneManager.LoadScene("endScene");
+        else
+            SceneManager.LoadScene("levelComplete");
+    }
+
 
 
 

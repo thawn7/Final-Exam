@@ -85,7 +85,7 @@ public class InventorySystem : MonoBehaviour
 
         for (int i = 0; i < playerInventory.Count; i++)
         {
-            print(playerInventory[i].ItemInfo());
+            //print(playerInventory[i].ItemInfo());
 
         }
 
