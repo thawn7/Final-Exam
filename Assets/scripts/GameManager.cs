@@ -33,8 +33,7 @@ public class GameManager : MonoBehaviour
 
             gameCanvas = Instantiate(gameUI);
             gameCanvas.name = "Canvas";
-            gameCanvas.transform.SetParent(gameObject.transform, false);
-
+            gameCanvas.transform.parent = gameObject.transform;
 
         }
         else

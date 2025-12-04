@@ -190,14 +190,15 @@ public class GenerateMaze : MonoBehaviour
         float xOffset = -(width * wallSize) / 2;
         float zOffset = -(height * wallSize) / 2;
 
+
         GameObject object1 = (GameObject)(Instantiate(objectToCollect, new Vector3(xOffset + wallSize, 1.5f, zOffset + wallSize), Quaternion.identity));
         object1.GetComponent<ObjectToBeCollected>().type = Item.ItemType.GOLD;
 
-        GameObject object2 = (GameObject)(Instantiate(objectToCollect, new Vector3(xOffset + wallSize*2, 1.5f, zOffset + wallSize*2), Quaternion.identity));
-        object2.GetComponent<ObjectToBeCollected>().type = Item.ItemType.RED_DIAMOND;
+        //GameObject object2 = (GameObject)(Instantiate(objectToCollect, new Vector3(xOffset + wallSize * 2, 1.5f, zOffset + wallSize * 2), Quaternion.identity));
+        //object2.GetComponent<ObjectToBeCollected>().type = Item.ItemType.RED_DIAMOND;
 
-        GameObject object3 = (GameObject)(Instantiate(objectToCollect, new Vector3(xOffset + wallSize*3, 1.5f, zOffset + wallSize*3), Quaternion.identity));
-        object3.GetComponent<ObjectToBeCollected>().type = Item.ItemType.BLUE_DIAMOND;
+        //GameObject object3 = (GameObject)(Instantiate(objectToCollect, new Vector3(xOffset + wallSize * 3, 1.5f, zOffset + wallSize * 3), Quaternion.identity));
+        //object3.GetComponent<ObjectToBeCollected>().type = Item.ItemType.BLUE_DIAMOND;
 
 
     }
@@ -210,9 +211,9 @@ public class GenerateMaze : MonoBehaviour
         float zOffset = -(height * wallSize) / 2;
 
         GameObject npc1 = (GameObject)(Instantiate(npc, new Vector3(xOffset + wallSize, 0.52f, zOffset + wallSize * 2), Quaternion.identity));
-        //npc1.GetComponent<ControlNPCGuard>().guardType = ControlNPCGuard.GUARD_TYPE.IDLE;
+        npc1.GetComponent<ControlNPCGuard>().guardType = ControlNPCGuard.GUARD_TYPE.IDLE;
 
-        npc1.GetComponent<ControlNPCGuard>().guardType = ControlNPCGuard.GUARD_TYPE.CHASER;
+        //npc1.GetComponent<ControlNPCGuard>().guardType = ControlNPCGuard.GUARD_TYPE.CHASER;
         //npc1.GetComponent<ControlNPCGuard>().player = GameObject.Find("player");
         npc1.GetComponent<ControlNPCGuard>().player = GameObject.Find("Player");
 

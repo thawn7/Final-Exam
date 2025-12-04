@@ -287,6 +287,8 @@ public class QuestSystem : MonoBehaviour
 
     }
 
+
+
     void Display(string message)
     {
 
