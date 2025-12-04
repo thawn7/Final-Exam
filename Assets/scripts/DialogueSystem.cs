@@ -29,9 +29,9 @@ public class DialogueSystem : MonoBehaviour
         //{
 
 
-          //  print("Message:" + dialogues[i].message);
-          //  print("Answer A:" + dialogues[i].response[0]);
-          //  print("Answer B:" + dialogues[i].response[1]);
+        //    print("Message:" + dialogues[i].message);
+        //    print("Answer A:" + dialogues[i].response[0]);
+        //    print("Answer B:" + dialogues[i].response[1]);
         //}
 
         dialogueBox = GameObject.Find("dialogueBox");

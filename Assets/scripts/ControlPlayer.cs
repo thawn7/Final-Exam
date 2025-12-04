@@ -51,7 +51,11 @@ public class ControlPlayer : MonoBehaviour
         shopUI = GameObject.Find("shopUI");
         shopUI.SetActive(false);
         weapon = GameObject.Find("playerWeapon").gameObject; weapon.SetActive(false);
-        // }
+        isTalking = false;
+        itemToPickUpNearBy = false;
+        shopIsDisplayed = false;
+        weaponIsActive = false;
+
 
         // Update is called once per frame
     }
@@ -146,17 +150,15 @@ public class ControlPlayer : MonoBehaviour
     }
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.collider.gameObject.name == "Diana"
-        && !isTalking
-        && Time.time >= nextTalkTime)   // cooldown check
+        if (hit.collider.gameObject.name == "Diana" && !isTalking)
         
             {
 
-            hit.collider.gameObject.GetComponent<DialogueSystem>().startDialogue();
-            isTalking = true;
-            anim.SetFloat("speed", 0);
-            hit.collider.isTrigger = true;
-            hit.collider.gameObject.GetComponent<BoxCollider>().size = new Vector3(2, 1, 2);
+                hit.collider.gameObject.GetComponent<DialogueSystem>().startDialogue();
+                isTalking = true;
+                anim.SetFloat("speed", 0);
+                hit.collider.isTrigger = true;
+                hit.collider.gameObject.GetComponent<BoxCollider>().size = new Vector3(2, 1, 2);
 
         }
     }
@@ -248,18 +250,9 @@ public class ControlPlayer : MonoBehaviour
 
         if (health <= 0)
         {
-            // dead
-            health = 0;
+            health = 50; SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             GameObject.Find("healthBar").GetComponent<ManageBar>().SetValue(health);
-
-            // reset and reload
-            health = 50;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            return;
-        }
-
-        // still alive: just update bar
-        GameObject.Find("healthBar").GetComponent<ManageBar>().SetValue(health);
+        }   
     }
 
 }

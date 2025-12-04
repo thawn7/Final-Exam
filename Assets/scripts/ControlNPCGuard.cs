@@ -38,7 +38,7 @@ public class ControlNPCGuard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (!playerActivated) { player = GameObject.Find("Player"); playerActivated = true; }
+        if (!playerActivated) { player = GameObject.Find("Player"); playerActivated = true; }
 
         info = anim.GetCurrentAnimatorStateInfo(0);
         //if (info.IsName("Idle") || info.IsName("Patrol"))
