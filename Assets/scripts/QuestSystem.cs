@@ -269,11 +269,6 @@ public class QuestSystem : MonoBehaviour
         }
 
         print($"Achieved {nbObjectivesAchieved}/{nbObjectivesToAchieve}");
-        for (int i = 0; i < targets.Count; i++)
-        {
-            Debug.Log($"Objective {i}: {actionsForQuest[i]} {targets[i]} achieved={objectiveAchieved[i]}");
-        }
-
 
         if (nbObjectivesAchieved == nbObjectivesToAchieve)
         {
