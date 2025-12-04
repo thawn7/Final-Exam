@@ -86,9 +86,12 @@ public class QuestSystem : MonoBehaviour
         xps = new List<string>();
         objectiveAchieved = new List<bool>();
         actionsForQuest = new List<possibleActions>();
+        nbObjectivesToAchieve = 0;   // ✅ reset objective count
+
         //LoadQuest();
         LoadQuest2();
         DisplayQuestInfo();
+        Debug.Log("Loaded Stage ID: " + currentStage);
 
 
 
@@ -244,26 +247,30 @@ public class QuestSystem : MonoBehaviour
         print("Notified: Action=" + actions + " Target=" + target);
         for (int i = 0; i < actionsForQuest.Count; i++)
         {
-            if (actions == actionsForQuest[i] && target == targets[i] && !objectiveAchieved[i])
+            print($"Check {i}: expectedAction={actionsForQuest[i]}, expectedTarget={targets[i]}, achieved={objectiveAchieved[i]}");
+
+            if (actions == actionsForQuest[i] &&
+                string.Equals(targets[i], target, StringComparison.OrdinalIgnoreCase) &&
+                !objectiveAchieved[i])
             {
                 print("+" + xps[i] + "XP");
                 Display("+" + xps[i] + "XP");
-                nbObjectivesAchieved++; XPAchieved += Int32.Parse(xps[i]);
+                nbObjectivesAchieved++;
+                XPAchieved += Int32.Parse(xps[i]);
                 objectiveAchieved[i] = true;
-
             }
-
         }
 
-        if (nbObjectivesAchieved == nbObjectivesToAchieve && nbObjectivesAchieved >= 1)
+        print($"Achieved {nbObjectivesAchieved}/{nbObjectivesToAchieve}");
+
+        if (nbObjectivesAchieved == nbObjectivesToAchieve)
         {
             Display("Stage Complete");
             GetComponent<GameManager>().player.XP = CalculateTotalXPForLevel();
             Invoke("StageComplete", 2);
         }
-    
-
     }
+
 
     int CalculateTotalXPForLevel()
     {

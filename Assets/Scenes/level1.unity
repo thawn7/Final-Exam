@@ -3164,6 +3164,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2483554957056943515, guid: c367180f9e8cc8643bbe6de4745a8d88, type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2483554957056943515, guid: c367180f9e8cc8643bbe6de4745a8d88, type: 3}
+      propertyPath: m_Radius
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2483554957056943515, guid: c367180f9e8cc8643bbe6de4745a8d88, type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2483554957056943515, guid: c367180f9e8cc8643bbe6de4745a8d88, type: 3}
+      propertyPath: m_Center.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4518374272690504879, guid: c367180f9e8cc8643bbe6de4745a8d88, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.5
@@ -3182,6 +3198,10 @@ PrefabInstance:
       objectReference: {fileID: 1023322701}
     - target: {fileID: 5134285424665438551, guid: c367180f9e8cc8643bbe6de4745a8d88, type: 3}
       propertyPath: guardType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134285424665438551, guid: c367180f9e8cc8643bbe6de4745a8d88, type: 3}
+      propertyPath: canHearPlayer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5134285424665438551, guid: c367180f9e8cc8643bbe6de4745a8d88, type: 3}

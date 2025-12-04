@@ -92,7 +92,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1940168987844800323}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &3569342214212112210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,7 +198,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026401068914122615}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &6295457586126854178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,8 +438,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.036767907
-  m_Height: 0.4258193
+  m_Radius: 0.2
+  m_Height: 1.2
   m_Direction: 1
   m_Center: {x: 0.00000003013944, y: 0.090490244, z: -0.00000024044127}
 --- !u!54 &8273663397172311146

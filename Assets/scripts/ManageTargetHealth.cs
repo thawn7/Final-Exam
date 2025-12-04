@@ -71,8 +71,8 @@ public class ManageTargetHealth : MonoBehaviour
         SetHealth(this.health - increment);
         hitFlash = true;
         alpha = .5f;
-        //gameObject.GetComponent<ControlNPCGuard>().SetGuardType(ControlNPCGuard.GUARD_TYPE.CHASER);
-        //AlertOtherGuards();
+        gameObject.GetComponent<ControlNPCGuard>().SetGuardType(ControlNPCGuard.GUARD_TYPE.CHASER);
+        AlertOtherGuards();
     }
 
     void AlertOtherGuards()
@@ -83,7 +83,7 @@ public class ManageTargetHealth : MonoBehaviour
         for (int i = 0; i < otherGuards.Length; i++)
         {
 
-            //otherGuards[i].GetComponent<ControlNPCGuard>().SetGuardType(ControlNPCGuard.GUARD_TYPE.CHASER);
+            otherGuards[i].GetComponent<ControlNPCGuard>().SetGuardType(ControlNPCGuard.GUARD_TYPE.CHASER);
 
         }
 

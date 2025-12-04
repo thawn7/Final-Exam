@@ -41,16 +41,16 @@ public class ControlNPCGuard : MonoBehaviour
         if (!playerActivated) { player = GameObject.Find("Player"); playerActivated = true; }
 
         info = anim.GetCurrentAnimatorStateInfo(0);
-        //if (info.IsName("Idle") || info.IsName("Patrol"))
-        //{
-            //if (isNearPlayer() && canHearPlayer) SetGuardType(GUARD_TYPE.CHASER);
+        if (info.IsName("Idle") || info.IsName("Patrol"))
+        {
+            if (isNearPlayer() && canHearPlayer) SetGuardType(GUARD_TYPE.CHASER);
 
-        //}
+        }
         if (isNearPlayer()) anim.SetBool("isWithinAttackingRange", true); else anim.SetBool("isWithinAttackingRange", false);
         //if (info.IsName("Idle"))
         //{
-        //    if (isNearPlayer()) SetGuardType(GUARD_TYPE.CHASER);
-        //}
+           // if (isNearPlayer()) SetGuardType(GUARD_TYPE.CHASER);
+       // }
         if (info.IsName("Patrol"))
         {
 

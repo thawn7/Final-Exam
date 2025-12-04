@@ -26,6 +26,11 @@ public class GameManager : MonoBehaviour
         GameObject[] t = GameObject.FindGameObjectsWithTag("gameManager");
         if (t.Length > 1) Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
+        string scene = SceneManager.GetActiveScene().name.ToLower();
+
+        if (scene == "level1") currentStage = 0;
+        else if (scene == "level2") currentStage = 1;
+        else if (scene == "level3") currentStage = 2;
 
         GameObject gameCanvas;
         if (SceneManager.GetActiveScene().name == "level1")
