@@ -253,7 +253,7 @@ public class QuestSystem : MonoBehaviour
 
         }
 
-        //if (nbObjectivesAchieved == nbObjectivesToAchieve)
+        if (nbObjectivesAchieved == nbObjectivesToAchieve)
         if (nbObjectivesAchieved >= 1)
         {
 

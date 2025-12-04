@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CheckCollision : MonoBehaviour
 {
-    int damage = 20;
+    int damage = 50;
     // Start is called before the first frame update
     void Start()
     {

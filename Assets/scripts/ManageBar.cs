@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ManageBar : MonoBehaviour
 {
 
-    int value = 0;
+    int value = 50;
     string label;
     // Start is called before the first frame update
     void Start()

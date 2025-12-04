@@ -11,6 +11,8 @@ public class ControlPlayer : MonoBehaviour
     CharacterController controller;
     AnimatorStateInfo info;
     bool isTalking = false;
+    float talkCooldown = 2f;     // seconds between conversations
+    float nextTalkTime = 0f;     // when we are allowed to talk again
 
     GameObject objectToPickUp;
     bool itemToPickUpNearBy = false;
@@ -38,6 +40,7 @@ public class ControlPlayer : MonoBehaviour
 
     void Start()
     {
+        health = 50;
         anim = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
 
@@ -143,8 +146,11 @@ public class ControlPlayer : MonoBehaviour
     }
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.collider.gameObject.name == "Diana" && !isTalking)
-        {
+        if (hit.collider.gameObject.name == "Diana"
+        && !isTalking
+        && Time.time >= nextTalkTime)   // cooldown check
+        
+            {
 
             hit.collider.gameObject.GetComponent<DialogueSystem>().startDialogue();
             isTalking = true;
@@ -158,6 +164,7 @@ public class ControlPlayer : MonoBehaviour
     {
 
         isTalking = false;
+        nextTalkTime = Time.time + talkCooldown;
     }
     public void OnTriggerEnter(Collider other)
     {
@@ -237,18 +244,23 @@ public class ControlPlayer : MonoBehaviour
     }
     public void DecreaseHealth(int amount)
     {
-
         health -= amount;
-        if (health <= 0) health = 0;
-        GameObject.Find("healthBar").GetComponent<ManageBar>().SetValue(health);
+
         if (health <= 0)
         {
+            // dead
+            health = 0;
+            GameObject.Find("healthBar").GetComponent<ManageBar>().SetValue(health);
 
+            // reset and reload
             health = 50;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
+            return;
         }
 
+        // still alive: just update bar
+        GameObject.Find("healthBar").GetComponent<ManageBar>().SetValue(health);
     }
+
 }
 
