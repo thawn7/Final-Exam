@@ -145,6 +145,8 @@ public class QuestSystem : MonoBehaviour
     }
     public void LoadQuest2()
     {
+        //Debug.Log("Loading stage: " + currentStage);
+
         TextAsset textAsset = (TextAsset)Resources.Load("quest");
         XmlDocument doc = new XmlDocument();
         doc.LoadXml(textAsset.text);
@@ -235,9 +237,9 @@ public class QuestSystem : MonoBehaviour
 
 
         }
-    
 
-    public void Notify (possibleActions actions, string target)
+
+    public void Notify(possibleActions actions, string target)
     {
         print("Notified: Action=" + actions + " Target=" + target);
         for (int i = 0; i < actionsForQuest.Count; i++)
@@ -253,15 +255,13 @@ public class QuestSystem : MonoBehaviour
 
         }
 
-        if (nbObjectivesAchieved == nbObjectivesToAchieve)
-        if (nbObjectivesAchieved >= 1)
+        if (nbObjectivesAchieved == nbObjectivesToAchieve && nbObjectivesAchieved >= 1)
         {
-
             Display("Stage Complete");
             GetComponent<GameManager>().player.XP = CalculateTotalXPForLevel();
             Invoke("StageComplete", 2);
-
         }
+    
 
     }
 
