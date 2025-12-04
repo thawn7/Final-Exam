@@ -29,7 +29,7 @@ public class ShopSystem : MonoBehaviour
         //initialMoney = 1000;
         initialMoney = GameObject.Find("Player").GetComponent<InventorySystem>().GetMoney();
         moneyLeft = initialMoney;
-        topLeftX = 320; topLeftY = 440;
+        topLeftX = -390; topLeftY = 140;
         shopItems = new List<Item>();
         shopItems.Add(new Item(Item.ItemType.YELLOW_DIAMOND));
         shopItems.Add(new Item(Item.ItemType.BLUE_DIAMOND));
