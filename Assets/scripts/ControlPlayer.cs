@@ -227,14 +227,24 @@ public class ControlPlayer : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        itemToPickUpNearBy = false;
-        if (userMessage.activeSelf)
+        if (other.CompareTag("itemToBeCollected"))
         {
+            itemToPickUpNearBy = false;
 
-            GameObject.Find("userMessageText").GetComponent<Text>().text = "";
-            userMessage.SetActive(false);
+            if (userMessage.activeSelf)
+            {
+                GameObject.Find("userMessageText").GetComponent<Text>().text = "";
+                userMessage.SetActive(false);
+            }
+        }
+
+        if (other.gameObject.name == "shop")
+        {
+            shopIsDisplayed = false;
+            shopUI.SetActive(false);
         }
     }
+
     public void displayShopUI()
     {
 
