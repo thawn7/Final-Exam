@@ -190,15 +190,14 @@ public class GenerateMaze : MonoBehaviour
         float xOffset = -(width * wallSize) / 2;
         float zOffset = -(height * wallSize) / 2;
 
-
         GameObject object1 = (GameObject)(Instantiate(objectToCollect, new Vector3(xOffset + wallSize, 1.5f, zOffset + wallSize), Quaternion.identity));
         object1.GetComponent<ObjectToBeCollected>().type = Item.ItemType.GOLD;
 
-        //GameObject object2 = (GameObject)(Instantiate(objectToCollect, new Vector3(xOffset + wallSize * 2, 1.5f, zOffset + wallSize * 2), Quaternion.identity));
-        //object2.GetComponent<ObjectToBeCollected>().type = Item.ItemType.RED_DIAMOND;
+        GameObject object2 = (GameObject)(Instantiate(objectToCollect, new Vector3(xOffset + wallSize * 2, 1.5f, zOffset + wallSize * 2), Quaternion.identity));
+        object2.GetComponent<ObjectToBeCollected>().type = Item.ItemType.RED_DIAMOND;
 
-        //GameObject object3 = (GameObject)(Instantiate(objectToCollect, new Vector3(xOffset + wallSize * 3, 1.5f, zOffset + wallSize * 3), Quaternion.identity));
-        //object3.GetComponent<ObjectToBeCollected>().type = Item.ItemType.BLUE_DIAMOND;
+        GameObject object3 = (GameObject)(Instantiate(objectToCollect, new Vector3(xOffset + wallSize * 3, 1.5f, zOffset + wallSize * 3), Quaternion.identity));
+        object3.GetComponent<ObjectToBeCollected>().type = Item.ItemType.BLUE_DIAMOND;
 
 
     }

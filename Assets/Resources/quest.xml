@@ -17,8 +17,8 @@
 		</requirements>
 
 		<results>
-			<result action = "Acquire a" target ="Gold" xp = "10"/>
-
+			<result action = "Acquire a" target ="Red diamond" xp = "10"/>
+			<result action = "Acquire a" target ="Blue diamond" xp = "10"/>
 		</results>
 	</stage>
 	<stage id="2" name="The Boss Fight" description ="Collect gold, fight the guards and defeat the boss.">

@@ -86,7 +86,7 @@ public class QuestSystem : MonoBehaviour
         xps = new List<string>();
         objectiveAchieved = new List<bool>();
         actionsForQuest = new List<possibleActions>();
-        nbObjectivesToAchieve = 0;   // ✅ reset objective count
+        nbObjectivesToAchieve = 0;   
 
         //LoadQuest();
         LoadQuest2();
@@ -179,7 +179,10 @@ public class QuestSystem : MonoBehaviour
 
                         if (action.IndexOf("Acquire") >= 0) actionForQuest = possibleActions.acquire_a;
                         else if (action.IndexOf("Talk") >= 0) actionForQuest = possibleActions.talk_to;
-                        else if (action.IndexOf("Destroy") >= 0 && action.IndexOf("one") >= 0) actionForQuest = possibleActions.destroy_one;
+                        else if ((action.IndexOf("Destroy") >= 0 && action.IndexOf("one") >= 0) ||
+                                 (action.IndexOf("Defeat") >= 0 && action.IndexOf("one") >= 0))
+                            actionForQuest = possibleActions.destroy_one;
+
                         else if (action.IndexOf("Enter") >= 0 && action.IndexOf("place") >= 0) actionForQuest = possibleActions.enter_place_called;
 
                         actionsForQuest.Add(actionForQuest);
