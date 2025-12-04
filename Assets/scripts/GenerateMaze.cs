@@ -55,7 +55,7 @@ public class GenerateMaze : MonoBehaviour
         Init();
         GenerateMazeBinary();
         DisplayGrid();
-        AddPlayer();
+        //AddPlayer();
         AddObjects();
         AddNPCs();
 
@@ -73,7 +73,6 @@ public class GenerateMaze : MonoBehaviour
         
     }
 
-    [System.Obsolete]
     void drawFullGrid()
     {
 
@@ -95,7 +94,7 @@ public class GenerateMaze : MonoBehaviour
 
                     gridObjectsV[j, i] = (GameObject)(Instantiate(verticalWall, new Vector3(-vWallSize / 2 + j * vWallSize + xOffset, wallSize / 2, i * vWallSize + zOffset), Quaternion.identity));
 
-                    gridObjectsV[j, i].active = true;
+                    gridObjectsV[j, i].SetActive(true);
                     gridObjectsV[j, i].name = "v" + i + j;
                     gridObjectsV[j, i].tag = "wall";
 
@@ -112,7 +111,7 @@ public class GenerateMaze : MonoBehaviour
 
                     gridObjectsH[j, i] = (GameObject)(Instantiate(horizontalWall, new Vector3(j*hWallSize+xOffset, wallSize / 2, -(hWallSize/2) +i * hWallSize + zOffset), Quaternion.identity));
 
-                    //gridObjectsH[j, i].self = true;
+                    gridObjectsH[j, i].SetActive(true);
                     gridObjectsH[j, i].name = "h" + i + j;
                     gridObjectsH[j, i].tag = "wall";
 

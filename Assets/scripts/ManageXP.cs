@@ -41,7 +41,7 @@ public class ManageXP : MonoBehaviour
         initialXPTextUI.GetComponent<Text>().text = "" + initialXP;
 
         powerSlider.GetComponent<Slider>().minValue = initialPower;
-        powerSlider.GetComponent<Slider>().maxValue= initialPower + initialXP;
+        powerSlider.GetComponent<Slider>().maxValue = initialPower + initialXP;
 
 
         accuracySlider.GetComponent<Slider>().minValue = initialAccuracy;
@@ -49,10 +49,10 @@ public class ManageXP : MonoBehaviour
 
 
         communicationSlider.GetComponent<Slider>().minValue = initialCommunication;
-        communicationSlider.GetComponent<Slider>().maxValue = initialCommunication + initialXP; 
-
+        communicationSlider.GetComponent<Slider>().maxValue = initialCommunication + initialXP;
 
     }
+
 
     // Update is called once per frame
     void Update()
@@ -71,7 +71,8 @@ public class ManageXP : MonoBehaviour
         }
         
     }
-
+    
+    
     void saveCurrentValues()
     {
         previousPower = currentPower;
@@ -132,3 +133,4 @@ public class ManageXP : MonoBehaviour
     }
 
 }
+    

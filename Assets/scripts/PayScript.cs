@@ -15,7 +15,7 @@ public class PayScript : MonoBehaviour
 
         GameObject.Find("Player").GetComponent<InventorySystem>().AddPurchasedItems(purchasedItems);
         GameObject.Find("Player").GetComponent<ControlPlayer>().shopIsDisplayed = false;
-        GameObject.Find("Player").transform.position = GameObject.Find("Player").transform.forward * 1;
+        GameObject.Find("Player").transform.position = GameObject.Find("Player").transform.forward * 0.8f;
         GameObject.Find("shopUI").SetActive(false);
 
 

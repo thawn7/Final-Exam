@@ -11,5 +11,15 @@
       <result action = "Enter place called" target ="yellow_house" xp = "10"/>
     </results>
   </stage>
- 
+	<stage id="1" name="The Maze" description ="Navigate the maze, fight the guards. Find a red and a blue diamond and gold.">
+		<requirements>
+
+		</requirements>
+
+		<results>
+			<result action = "Acquire a" target ="Red diamond" xp = "10"/>
+			<result action = "Acquire a" target ="Blue diamond" xp = "10"/>
+
+		</results>
+	</stage>
 </quest>

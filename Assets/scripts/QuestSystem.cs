@@ -207,10 +207,10 @@ public class QuestSystem : MonoBehaviour
         {
             p = Instantiate(player);
             p.name = "Player";
-
+            p.transform.rotation = new Quaternion(0, 0, 0, 0);
 
             p.transform.position = GameObject.Find("startingPoint").transform.position;
-            p.transform.rotation = new Quaternion(0, 0, 0, 0);
+            //p.transform.rotation = new Quaternion(0, 0, 0, 0);
             p.transform.parent = gameObject.transform;
 
 
@@ -253,7 +253,7 @@ public class QuestSystem : MonoBehaviour
 
         }
 
-        if (nbObjectivesAchieved == nbObjectivesToAchieve)
+        //if (nbObjectivesAchieved == nbObjectivesToAchieve)
         if (nbObjectivesAchieved >= 1)
         {
 
