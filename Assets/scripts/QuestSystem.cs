@@ -247,9 +247,13 @@ public class QuestSystem : MonoBehaviour
 
     public void Notify(possibleActions actions, string target)
     {
+        if (target.Equals("Guards", StringComparison.OrdinalIgnoreCase))
+            return;
         print("Notified: Action=" + actions + " Target=" + target);
         for (int i = 0; i < actionsForQuest.Count; i++)
         {
+            //print($"Comparing actions: incoming={actions}, expected={actionsForQuest[i]}");
+
 
             if (actions == actionsForQuest[i] &&
                 string.Equals(targets[i], target, StringComparison.OrdinalIgnoreCase) &&
@@ -260,10 +264,16 @@ public class QuestSystem : MonoBehaviour
                 nbObjectivesAchieved++;
                 XPAchieved += Int32.Parse(xps[i]);
                 objectiveAchieved[i] = true;
+                break;
             }
         }
 
         print($"Achieved {nbObjectivesAchieved}/{nbObjectivesToAchieve}");
+        for (int i = 0; i < targets.Count; i++)
+        {
+            Debug.Log($"Objective {i}: {actionsForQuest[i]} {targets[i]} achieved={objectiveAchieved[i]}");
+        }
+
 
         if (nbObjectivesAchieved == nbObjectivesToAchieve)
         {
@@ -300,11 +310,10 @@ public class QuestSystem : MonoBehaviour
     {
         string current = SceneManager.GetActiveScene().name;
 
-        // ✅ Prevent duplicate calls after the scene has changed
         if (current == "levelComplete" || current == "endScene")
             return;
 
-        Debug.Log("StageComplete() called from scene: " + current);
+        //Debug.Log("StageComplete() called from scene: " + current);
 
         if (current == "level3")
             SceneManager.LoadScene("endScene");
