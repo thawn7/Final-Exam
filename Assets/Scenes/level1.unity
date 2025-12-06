@@ -3031,10 +3031,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2888021133245332841, guid: 391f102baa2d92f40927e6428714e83d, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3682992316238112853, guid: 391f102baa2d92f40927e6428714e83d, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -3043,17 +3039,9 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7113315624412169773, guid: 391f102baa2d92f40927e6428714e83d, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7913741344807702919, guid: 391f102baa2d92f40927e6428714e83d, type: 3}
+    - target: {fileID: 4639964936038832990, guid: 391f102baa2d92f40927e6428714e83d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9153474098571585247, guid: 391f102baa2d92f40927e6428714e83d, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -2.34375
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
